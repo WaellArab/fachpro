@@ -1,0 +1,241 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://enemy.gd" type="Script" id=1]
+[ext_resource path="res://Tiles/tile_0230.png" type="Texture" id=2]
+[ext_resource path="res://Tiles/tile_0231.png" type="Texture" id=3]
+[ext_resource path="res://Tiles/tile_0229.png" type="Texture" id=4]
+[ext_resource path="res://Tiles/tile_0171.png" type="Texture" id=5]
+[ext_resource path="res://sounds/pepSound2.ogg" type="AudioStream" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "run 1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "run_2",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 3.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 2 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="enemy" type="KinematicBody2D" parent="." groups=["enemy"]]
+position = Vector2( 538, 629 )
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="enemy"]
+position = Vector2( -1.49012e-08, -6 )
+scale = Vector2( 0.97619, 1.21429 )
+frames = SubResource( 1 )
+animation = "run_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+position = Vector2( 0, 3.75 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="enemy"]
+position = Vector2( 9, 2 )
+enabled = true
+cast_to = Vector2( 0, 11 )
+
+[node name="hitbos_2" type="Area2D" parent="enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/hitbos_2" groups=["player1"]]
+position = Vector2( 0, -5 )
+shape = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="enemy"]
+stream = ExtResource( 6 )
+
+[node name="enemy2" type="KinematicBody2D" parent="." groups=["enemy"]]
+position = Vector2( 282, 617 )
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="enemy2"]
+position = Vector2( -1.49012e-08, -6 )
+scale = Vector2( 0.97619, 1.21429 )
+frames = SubResource( 1 )
+animation = "run_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy2"]
+position = Vector2( 0, 3 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="enemy2"]
+position = Vector2( 9, 2 )
+enabled = true
+cast_to = Vector2( 0, 11 )
+
+[node name="hitbos_2" type="Area2D" parent="enemy2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy2/hitbos_2"]
+position = Vector2( 0, -4 )
+shape = SubResource( 3 )
+
+[node name="enemy3" type="KinematicBody2D" parent="." groups=["enemy"]]
+position = Vector2( 610, 474 )
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="enemy3"]
+position = Vector2( -1.49012e-08, -6 )
+scale = Vector2( 0.97619, 1.21429 )
+frames = SubResource( 1 )
+animation = "run_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy3"]
+position = Vector2( 0, 2 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="enemy3"]
+position = Vector2( 9, 2 )
+enabled = true
+cast_to = Vector2( 0, 11 )
+
+[node name="hitbos_2" type="Area2D" parent="enemy3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy3/hitbos_2"]
+position = Vector2( 0, 2 )
+shape = SubResource( 3 )
+
+[node name="enemy4" type="KinematicBody2D" parent="." groups=["enemy"]]
+position = Vector2( 282, 401 )
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="enemy4"]
+position = Vector2( -1.49012e-08, -6 )
+scale = Vector2( 0.97619, 1.21429 )
+frames = SubResource( 1 )
+animation = "run_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy4"]
+position = Vector2( 0, 3 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="enemy4"]
+position = Vector2( 9, 2 )
+enabled = true
+cast_to = Vector2( 0, 11 )
+
+[node name="hitbos_2" type="Area2D" parent="enemy4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy4/hitbos_2"]
+position = Vector2( 0, -3 )
+shape = SubResource( 3 )
+
+[node name="enemy5" type="KinematicBody2D" parent="." groups=["enemy"]]
+position = Vector2( 184, 477 )
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="enemy5"]
+position = Vector2( -1.49012e-08, -6 )
+scale = Vector2( 0.97619, 1.21429 )
+frames = SubResource( 1 )
+animation = "run_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy5"]
+position = Vector2( 0, 2 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="enemy5"]
+position = Vector2( 9, 2 )
+enabled = true
+cast_to = Vector2( 0, 11 )
+
+[node name="hitbos_2" type="Area2D" parent="enemy5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy5/hitbos_2"]
+position = Vector2( 0, 2 )
+shape = SubResource( 3 )
+
+[node name="enemy6" type="KinematicBody2D" parent="." groups=["enemy"]]
+position = Vector2( 683, 402 )
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="enemy6"]
+position = Vector2( -1.49012e-08, -6 )
+scale = Vector2( 0.97619, 1.21429 )
+frames = SubResource( 1 )
+animation = "run_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy6"]
+position = Vector2( 0, 3.5 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="enemy6"]
+position = Vector2( 9, 2 )
+enabled = true
+cast_to = Vector2( 0, 11 )
+
+[node name="hitbos_2" type="Area2D" parent="enemy6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy6/hitbos_2"]
+position = Vector2( 0, -2 )
+shape = SubResource( 3 )
+
+[node name="enemy7" type="KinematicBody2D" parent="." groups=["enemy"]]
+position = Vector2( 212, 859 )
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="enemy7"]
+position = Vector2( -1.49012e-08, -6 )
+scale = Vector2( 0.97619, 1.21429 )
+frames = SubResource( 1 )
+animation = "run_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy7"]
+position = Vector2( 0, 2 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="enemy7"]
+position = Vector2( 9, 2 )
+enabled = true
+cast_to = Vector2( 0, 11 )
+
+[node name="hitbos_2" type="Area2D" parent="enemy7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy7/hitbos_2"]
+position = Vector2( 0, 2 )
+shape = SubResource( 3 )
+
+[node name="enemy8" type="KinematicBody2D" parent="." groups=["enemy"]]
+position = Vector2( 645, 853 )
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="enemy8"]
+position = Vector2( 0, -5 )
+scale = Vector2( 0.97619, 1.21429 )
+frames = SubResource( 1 )
+animation = "run_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy8"]
+position = Vector2( 0, 2 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="enemy8"]
+position = Vector2( 9, 2 )
+enabled = true
+cast_to = Vector2( 0, 11 )
+
+[node name="hitbos_2" type="Area2D" parent="enemy8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy8/hitbos_2"]
+position = Vector2( 0, 2 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="enemy/hitbos_2" to="enemy" method="_on_hitbos_2_body_entered"]
+[connection signal="body_entered" from="enemy2/hitbos_2" to="enemy2" method="_on_hitbos_2_body_entered"]
+[connection signal="body_entered" from="enemy3/hitbos_2" to="enemy3" method="_on_hitbos_2_body_entered"]
+[connection signal="body_entered" from="enemy4/hitbos_2" to="enemy4" method="_on_hitbos_2_body_entered"]
+[connection signal="body_entered" from="enemy5/hitbos_2" to="enemy5" method="_on_hitbos_2_body_entered"]
+[connection signal="body_entered" from="enemy6/hitbos_2" to="enemy6" method="_on_hitbos_2_body_entered"]
+[connection signal="body_entered" from="enemy7/hitbos_2" to="enemy7" method="_on_hitbos_2_body_entered"]
+[connection signal="body_entered" from="enemy8/hitbos_2" to="enemy8" method="_on_hitbos_2_body_entered"]

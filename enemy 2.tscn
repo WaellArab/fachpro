@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Tiles/tile_0171.png" type="Texture" id=1]
+[ext_resource path="res://enemy.gd" type="Script" id=2]
+[ext_resource path="res://Tiles/tile_0230.png" type="Texture" id=3]
+[ext_resource path="res://Tiles/tile_0231.png" type="Texture" id=4]
+[ext_resource path="res://Tiles/tile_0229.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "run 1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "run_2",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 7.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 3.25 )
+
+[node name="enemy B" type="Node2D"]
+
+[node name="enemy  2" type="KinematicBody2D" parent="." groups=["enemy"]]
+position = Vector2( 978, 913 )
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="enemy  2"]
+position = Vector2( -0.0604619, -0.535043 )
+scale = Vector2( -0.917322, 0.789056 )
+frames = SubResource( 1 )
+animation = "run 1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy  2"]
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="enemy  2"]
+position = Vector2( 9, 2 )
+enabled = true
+cast_to = Vector2( 0, 11 )
+
+[node name="hitbos_2" type="Area2D" parent="enemy  2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy  2/hitbos_2"]
+position = Vector2( 0, -11 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="enemy  2/hitbos_2" to="enemy  2" method="_on_hitbos_2_body_entered"]
